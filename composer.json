@@ -1,0 +1,51 @@
+{
+    "name": "alphaolomi/php-cellulant",
+    "description": "Cellulant PHP SDK",
+    "keywords": [
+        "alphaolomi",
+        "php-cellulant",
+        "cellulant",
+        "payments"
+    ],
+    "homepage": "https://github.com/alphaolomi/php-cellulant",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alpha Olomi",
+            "email": "alphaolomi@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.20",
+        "friendsofphp/php-cs-fixer": "^3.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alphaolomi\\Cellulant\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alphaolomi\\Cellulant\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-risky=yes"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
