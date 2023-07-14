@@ -22,10 +22,10 @@ The package is centered around Custom Checkout APIs provided by Tingg. It provid
 
 ## Pre-requisites
 
--  PHP >= 8.0
--  PHP `cURL` extension
--  Composer Package Manager
--  Cellulant API Credentials, obtain them from [Tingg Dev Portal](https://dev-portal.tingg.africa/)
+-   PHP >= 8.0
+-   PHP `cURL` extension
+-   Composer Package Manager
+-   Cellulant API Credentials, obtain them from [Tingg Dev Portal](https://dev-portal.tingg.africa/)
 
 Preferable way to install is with [Composer](https://getcomposer.org/).
 
@@ -40,12 +40,13 @@ composer require alphaolomi/php-cellulant
 ```php
 use Alphaolomi\CellulantService;
 
-$celluant = new CellulantService([
-    'client_id' => 'clientId',
-    'client_secret' => 'clientSecret',
+$cellulant = new CellulantService([
+    'clientId' => 'your clientId',
+    'clientSecret' => 'your clientSecret',
     'apiKey' => 'your api key',
     'serviceCode' => 'your service code',
-    'env' => 'sandbox', // or 'production'    
+    'callbackUrl' => 'your callback url',
+    'env' => 'sandbox', // or 'production'
 ]);
 
 
