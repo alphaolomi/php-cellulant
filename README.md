@@ -4,7 +4,7 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/alphaolomi/php-cellulant/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/alphaolomi/php-cellulant/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/alphaolomi/php-cellulant.svg?style=flat-square)](https://packagist.org/packages/alphaolomi/php-cellulant)
 
-Cellulant for PHP is a PHP client for the [Tingg API](#) a product of Cellulant.
+Cellulant for PHP is a PHP client for the [Tingg API](https://dev-portal.tingg.africa/) a product of Cellulant.
 
 ## Features
 
@@ -119,6 +119,10 @@ Tests are written with [Pest](https://pestphp.com/). To run the tests:
 composer test
 ```
 
+## Support the development
+
+Do you like this project? Support it by [Star this repository ⭐️](https://github.com/alphaolomi/php-cellulant) and follow me on [Twitter](https://twitter.com/alphaolomi) for more updates 👍.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
@@ -129,12 +133,16 @@ Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTI
 
 ## Security Vulnerabilities
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+If you discover a security vulnerability within Laravel, please send an e-mail to Alpha Olomi via alphaolomi@gmail.com. All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
 -   [Alpha Olomi](https://github.com/alphaolomi)
 -   [All Contributors](../../contributors)
+
+## Reaching Me
+
+If you are having issues with this package, feel free to contact me on [Twitter](https://twitter.com/alphaolomi).
 
 ## License
 
