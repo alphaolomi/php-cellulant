@@ -4,7 +4,7 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/alphaolomi/php-cellulant/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/alphaolomi/php-cellulant/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/alphaolomi/php-cellulant.svg?style=flat-square)](https://packagist.org/packages/alphaolomi/php-cellulant)
 
-Cellulant for PHP is a PHP client for the [Tingg API](#) a product of Cellulant Inc.
+Cellulant for PHP is a PHP client for the [Tingg API](#) a product of Cellulant.
 
 ## Features
 
@@ -46,7 +46,7 @@ $cellulant = new CellulantService([
     'apiKey' => 'your api key',
     'serviceCode' => 'your service code',
     'callbackUrl' => 'your callback url',
-    'env' => 'sandbox', // or 'production'
+    'env' => 'sandbox', // or 'production' // default is sandbox
 ]);
 
 
@@ -87,6 +87,10 @@ $refundRes = $cellulant->refundRequest([
 ]);
 ```
 
+Refer to Features Test Cases for more usage examples.
+
+Refer to Tingg API documentation for the required parameters reference for each method.
+
 ## Notes
 
 -   Calling `authenticate()` is not automatic, you have to call it manually before making any request.
@@ -99,11 +103,13 @@ $refundRes = $cellulant->refundRequest([
 
 -   Methods accept an array of parameters, which are then converted to JSON before making the request. Refer to Tingg API documentation for the required parameters.
 
--   Methods array parameters are _NOT_ validated, so you have to make sure you pass the correct parameters.
+-   Methods array parameters are _NOT_ validated, so you have to make sure you pass the correct parameters. With exception of `construct()` method which validates the required parameters.
 
 -   Method names are the same as the Tingg API endpoints.
 
 -   The package uses [Guzzle](https://docs.guzzlephp.org/) to make HTTP requests. Version ^7.0 is used.
+
+-   Function Return Types are not implemented yet, so you have to manually cast the return values to the expected type.
 
 ## Testing
 
