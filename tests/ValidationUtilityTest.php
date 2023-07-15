@@ -2,7 +2,7 @@
 
 use Alphaolomi\Cellulant\ValidationUtility;
 
-it('can validate', function (){
+it('can validate', function () {
     $data = [
         'name' => 'John Doe',
         'email' => 'john@example.com',

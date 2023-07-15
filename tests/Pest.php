@@ -6,6 +6,7 @@ function mockGuzzleClient()
     $mock = new \GuzzleHttp\Handler\MockHandler();
     $handler = \GuzzleHttp\HandlerStack::create($mock);
     $client = new \GuzzleHttp\Client(['handler' => $handler]);
+
     return $client;
 }
 
@@ -16,6 +17,7 @@ function mockGuzzleClientWithResponse($response)
     ]);
     $handler = \GuzzleHttp\HandlerStack::create($mock);
     $client = new \GuzzleHttp\Client(['handler' => $handler]);
+
     return $client;
 }
 

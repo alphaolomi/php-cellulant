@@ -2,9 +2,8 @@
 
 use Alphaolomi\Cellulant\CellulantService;
 
-
 // load envs from ../.env
-beforeAll(function (){
+beforeAll(function () {
     $envFile = dirname(__DIR__, 1) . '/.env';
     if (file_exists($envFile)) {
         $envVars = parse_ini_file($envFile);
@@ -70,14 +69,14 @@ it('can create checkout', function () {
     // expect($res['results']['merchant_transaction_id'])->dd();
 
     $data2 = [
-        "charge_msisdn"=> $data['msisdn'],
-        "charge_amount"=> $data['request_amount'],
-        "country_code"=> $data['country_code'],
-        "currency_code"=> $data['currency_code'],
-        "merchant_transaction_id"=> $res['results']['merchant_transaction_id'],
-        "service_code"=> $data['service_code'],
-        "payment_mode_code"=> "STK_PUSH",
-        "payment_option_code"=> "VODACOMTZ"
+        "charge_msisdn" => $data['msisdn'],
+        "charge_amount" => $data['request_amount'],
+        "country_code" => $data['country_code'],
+        "currency_code" => $data['currency_code'],
+        "merchant_transaction_id" => $res['results']['merchant_transaction_id'],
+        "service_code" => $data['service_code'],
+        "payment_mode_code" => "STK_PUSH",
+        "payment_option_code" => "VODACOMTZ",
     ];
 
     $response = $cellulant->chargeRequest($data2);

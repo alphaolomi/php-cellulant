@@ -60,33 +60,33 @@ class CellulantService
     public function __construct(array $options = [])
     {
 
-        if (!isset($options['clientId'])) {
+        if (! isset($options['clientId'])) {
             throw new InvalidArgumentException('clientId is required');
         }
 
-        if (!isset($options['clientSecret'])) {
+        if (! isset($options['clientSecret'])) {
             throw new InvalidArgumentException('clientSecret is required');
         }
 
-        if (!isset($options['apiKey'])) {
+        if (! isset($options['apiKey'])) {
             throw new InvalidArgumentException('apiKey is required');
         }
 
-        if (!isset($options['serviceCode'])) {
+        if (! isset($options['serviceCode'])) {
             throw new InvalidArgumentException('serviceCode is required');
         }
 
-        if (!isset($options['callbackUrl'])) {
+        if (! isset($options['callbackUrl'])) {
             throw new InvalidArgumentException('callbackUrl is required');
         }
 
         // Set the environment
-        if (!isset($options['env'])) {
+        if (! isset($options['env'])) {
             $options['env'] = 'sandbox';
         }
 
         // Set Debug mode
-        if (!isset($options['debug'])) {
+        if (! isset($options['debug'])) {
             $options['debug'] = false;
         }
 
