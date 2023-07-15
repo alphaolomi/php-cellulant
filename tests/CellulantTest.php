@@ -27,36 +27,36 @@ it('can instantiate the cellulant class', function () {
 //         'callbackUrl' => 'your callback url',
 //         'env' => 'sandbox', // or 'production'
 //     ],
-    // [
-    //     'clientId' => 'clientId',
-    //     // 'clientSecret' => 'clientSecret',
-    //     'apiKey' => 'your api key',
-    //     'serviceCode' => 'your service code',
-    //     'callbackUrl' => 'your callback url',
-    //     'env' => 'sandbox', // or 'production'
-    // ],  [
-    //     'clientId' => 'clientId',
-    //     'clientSecret' => 'clientSecret',
-    //     // 'apiKey' => 'your api key',
-    //     'serviceCode' => 'your service code',
-    //     'callbackUrl' => 'your callback url',
-    //     'env' => 'sandbox', // or 'production'
-    // ],  [
-    //     'clientId' => 'clientId',
-    //     'clientSecret' => 'clientSecret',
-    //     'apiKey' => 'your api key',
-    //     // 'serviceCode' => 'your service code',
-    //     'callbackUrl' => 'your callback url',
-    //     'env' => 'sandbox', // or 'production'
-    // ],
-    // [
-    //     'clientId' => 'clientId',
-    //     'clientSecret' => 'clientSecret',
-    //     'apiKey' => 'your api key',
-    //     'serviceCode' => 'your service code',
-    //     // 'callbackUrl' => 'your callback url',
-    //     'env' => 'sandbox', // or 'production'
-    // ]
+// [
+//     'clientId' => 'clientId',
+//     // 'clientSecret' => 'clientSecret',
+//     'apiKey' => 'your api key',
+//     'serviceCode' => 'your service code',
+//     'callbackUrl' => 'your callback url',
+//     'env' => 'sandbox', // or 'production'
+// ],  [
+//     'clientId' => 'clientId',
+//     'clientSecret' => 'clientSecret',
+//     // 'apiKey' => 'your api key',
+//     'serviceCode' => 'your service code',
+//     'callbackUrl' => 'your callback url',
+//     'env' => 'sandbox', // or 'production'
+// ],  [
+//     'clientId' => 'clientId',
+//     'clientSecret' => 'clientSecret',
+//     'apiKey' => 'your api key',
+//     // 'serviceCode' => 'your service code',
+//     'callbackUrl' => 'your callback url',
+//     'env' => 'sandbox', // or 'production'
+// ],
+// [
+//     'clientId' => 'clientId',
+//     'clientSecret' => 'clientSecret',
+//     'apiKey' => 'your api key',
+//     'serviceCode' => 'your service code',
+//     // 'callbackUrl' => 'your callback url',
+//     'env' => 'sandbox', // or 'production'
+// ]
 // ]);
 
 // it('will throw an exception ', function (array $options) {

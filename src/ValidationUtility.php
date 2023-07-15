@@ -47,7 +47,7 @@ class ValidationUtility
             if (method_exists($this, $methodName)) {
                 $isValid = $this->$methodName($field, $value, $params);
 
-                if (!$isValid) {
+                if (! $isValid) {
                     $this->addError($field, $rule);
                 }
             }
@@ -81,6 +81,7 @@ class ValidationUtility
             $format = $params[0];
         }
         $date = DateTime::createFromFormat($format, $value);
+
         return $date && $date->format('Y-m-d') === $value;
     }
 
