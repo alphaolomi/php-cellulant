@@ -57,7 +57,7 @@ class CellulantService
      *
      * @throws InvalidArgumentException
      */
-    public function __construct(array $options = [])
+    public function __construct(array $options = [], Client $client = null)
     {
 
         if (! isset($options['clientId'])) {
@@ -99,7 +99,7 @@ class CellulantService
         $this->options = $options;
 
         // Setup the GuzzleHttp Client
-        $this->client = new Client([
+        $this->client = $client ?? new Client([
             'base_uri' => $this->baseUrl,
             'headers' => [
                 'Content-Type' => 'application/json',
@@ -114,6 +114,58 @@ class CellulantService
             // See https://docs.guzzlephp.org/en/stable/request-options.html#debug
             'debug' => $this->options['debug'],
         ]);
+    }
+
+    /**
+     * Set the access token
+     * Can be used to make subsequent requests
+     *
+     * @param string $accessToken
+     * @return $this
+     */
+    public function setAccessToken(string $accessToken)
+    {
+        $this->accessToken = $accessToken;
+
+        return $this;
+    }
+
+    /**
+     * Get the access token
+     *
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->accessToken;
+    }
+
+
+    /**
+     * Set the api key
+     * Can be used to make subsequent requests
+     *
+     * @param string $apiKey
+     * @return $this
+     */
+    public function setApiKey(string $apiKey)
+    {
+        if (trim($apiKey) === '') {
+            throw new InvalidArgumentException('apiKey is required');
+        }
+        $this->options['apiKey'] = $apiKey;
+
+        return $this;
+    }
+
+    /**
+     * Get the api key
+     *
+     * @return string
+     */
+    public function getApiKey()
+    {
+        return $this->options['apiKey'];
     }
 
     /**
