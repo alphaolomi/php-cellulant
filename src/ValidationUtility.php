@@ -4,6 +4,15 @@ namespace Alphaolomi\Cellulant;
 
 use DateTime;
 
+/**
+ * A simple validation utility class
+ *
+ * @author Alpha Olomi <alphaolomi@gmail.com>
+ * @since 1.0.0
+ * @api
+ *
+ * @package Alphaolomi\Cellulant
+ */
 class ValidationUtility
 {
     protected $rules = [];
