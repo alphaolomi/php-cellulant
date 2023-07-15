@@ -2,6 +2,19 @@
 
 All notable changes to `php-cellulant` will be documented in this file.
 
+## v1.1.0 - 2023-07-15
+
+### 🎉  1.1.0
+
+#### Updates
+
+- Bugs fixes
+- Improve documentation
+- Improve validation
+- Add more tests
+
+**Full Changelog**: https://github.com/alphaolomi/php-cellulant/compare/v1.0.0...v1.1.0
+
 ## v1.0.0 - 2023-07-14
 
 ### 🎉  v1.0.0
@@ -33,6 +46,7 @@ You can install/update the package via Composer:
 
 ```bash
 composer require alphaolomi/php-cellulant
+
 
 ```
 **Full Changelog**: https://github.com/alphaolomi/php-cellulant/compare/v0.0.0...v1.0.0
