@@ -140,7 +140,6 @@ class CellulantService
         return $this->accessToken;
     }
 
-
     /**
      * Set the api key
      * Can be used to make subsequent requests

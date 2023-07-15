@@ -49,7 +49,6 @@ class ValidationUtility
         return $this->getValidatedData();
     }
 
-
     protected function validateField($field, $value, $rule)
     {
         $rules = explode('|', $rule);
@@ -69,11 +68,11 @@ class ValidationUtility
             if (method_exists($this, $methodName)) {
                 $isValid = $this->$methodName($field, $value, $params);
 
-                if ($isValid && !isset($this->validatedData[$field])) {
+                if ($isValid && ! isset($this->validatedData[$field])) {
                     $this->addValidated($field, $value);
                 }
 
-                if (!$isValid) {
+                if (! $isValid) {
                     $messageKey = $field . '.' . $rule;
                     $message = $this->messages[$messageKey] ?? "Invalid value for '$field'";
                     $this->addError($field, $message);
@@ -136,7 +135,6 @@ class ValidationUtility
         return $date && $date->format($format) === $value;
     }
 
-
     protected function validateAfter($field, $value, $params)
     {
         if (count($params) === 0) {
@@ -177,7 +175,7 @@ class ValidationUtility
     {
         $pattern = '/^[0-9]{10}$/';
 
-        if (!empty($params) && isset($params[0])) {
+        if (! empty($params) && isset($params[0])) {
             $pattern = $params[0];
         }
 
