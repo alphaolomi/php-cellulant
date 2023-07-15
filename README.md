@@ -127,6 +127,10 @@ Do you like this project? Support it by [Star this repository ⭐️](https://gi
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
+## Versioning
+
+This project follows [RomVer](https://github.com/romversioning/romver).
+
 ## Contributing
 
 Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
