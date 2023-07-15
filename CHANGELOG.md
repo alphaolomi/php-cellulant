@@ -2,6 +2,19 @@
 
 All notable changes to `php-cellulant` will be documented in this file.
 
+## v1.2.0 - 2023-07-15
+
+### 🎉 1.2.0
+
+#### What's New
+
+- Added Guzzle\Client object as the second constructor argument
+- Added gets and setters for API key and access token.
+- internal: stable ValidationUtility
+- internal: add more tests
+
+**Full Changelog**: https://github.com/alphaolomi/php-cellulant/compare/v1.1.0...v1.2.0
+
 ## v1.1.0 - 2023-07-15
 
 ### 🎉  1.1.0
@@ -46,6 +59,7 @@ You can install/update the package via Composer:
 
 ```bash
 composer require alphaolomi/php-cellulant
+
 
 
 ```
