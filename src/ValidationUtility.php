@@ -3,6 +3,7 @@
 namespace Alphaolomi\Cellulant;
 
 use DateTime;
+use RuntimeException;
 
 /**
  * A simple validation utility class
@@ -15,24 +16,44 @@ use DateTime;
  */
 class ValidationUtility
 {
+    protected $validatedData = [];
     protected $rules = [];
     protected $errors = [];
+    protected $messages = [];
 
-    public function validate(array $data, array $rules)
+    public function validate(array $data, array $rules, $messages = [])
     {
         $this->rules = $rules;
         $this->errors = [];
+        $this->messages = $messages;
 
         foreach ($rules as $field => $rule) {
             $this->validateField($field, $data[$field] ?? null, $rule);
         }
 
+        return $this->getValidationResult();
+    }
+
+    public function getValidatedData()
+    {
+        return $this->validatedData;
+    }
+
+    public function getErrors()
+    {
         return $this->errors;
     }
+
+    public function getValidationResult()
+    {
+        return $this->getValidatedData();
+    }
+
 
     protected function validateField($field, $value, $rule)
     {
         $rules = explode('|', $rule);
+
 
         foreach ($rules as $rule) {
             $params = [];
@@ -42,16 +63,30 @@ class ValidationUtility
                 $params = explode(',', $params);
             }
 
-            $methodName = 'validate' . ucfirst($rule);
+            // Convert rule to camelCase recursively
+            $methodName = 'validate' . implode('', array_map('ucfirst', explode('_', $rule)));
 
             if (method_exists($this, $methodName)) {
                 $isValid = $this->$methodName($field, $value, $params);
 
-                if (! $isValid) {
-                    $this->addError($field, $rule);
+                if ($isValid && !isset($this->validatedData[$field])) {
+                    $this->addValidated($field, $value);
                 }
+
+                if (!$isValid) {
+                    $messageKey = $field . '.' . $rule;
+                    $message = $this->messages[$messageKey] ?? "Invalid value for '$field'";
+                    $this->addError($field, $message);
+                }
+            } else {
+                throw new RuntimeException("Validation rule '$rule' does not exist");
             }
         }
+    }
+
+    protected function addValidated($field, $value)
+    {
+        $this->validatedData[$field] = $value;
     }
 
     protected function addError($field, $rule)
@@ -74,6 +109,11 @@ class ValidationUtility
         return is_string($value);
     }
 
+    protected function validateEmail($field, $value, $params)
+    {
+        return filter_var($value, FILTER_VALIDATE_EMAIL);
+    }
+
     protected function validateDate($field, $value, $params)
     {
         $format = 'Y-m-d';
@@ -82,8 +122,20 @@ class ValidationUtility
         }
         $date = DateTime::createFromFormat($format, $value);
 
-        return $date && $date->format('Y-m-d') === $value;
+        return $date && $date->format($format) === $value;
     }
+
+    protected function validateDateTime($field, $value, $params)
+    {
+        $format = 'Y-m-d H:i:s';
+        if (count($params) !== 0) {
+            $format = $params[0];
+        }
+        $date = DateTime::createFromFormat($format, $value);
+
+        return $date && $date->format($format) === $value;
+    }
+
 
     protected function validateAfter($field, $value, $params)
     {
@@ -97,13 +149,13 @@ class ValidationUtility
         return $date && $afterDate && $date > $afterDate;
     }
 
-    protected function validateDateTimeAfter($field, $value, $params, $data)
+    protected function validateDateTimeAfter($field, $value, $params)
     {
         $format = 'Y-m-d H:i:s';
         $afterDateField = $params[0];
 
-        if (isset($data[$afterDateField])) {
-            $afterDate = $data[$afterDateField];
+        if (isset($this->rules[$afterDateField]) && isset($this->rules[$afterDateField]['value'])) {
+            $afterDate = $this->rules[$afterDateField]['value'];
 
             $dateTime = DateTime::createFromFormat($format, $value);
             $afterDateTime = DateTime::createFromFormat($format, $afterDate);
@@ -123,7 +175,12 @@ class ValidationUtility
 
     protected function validatePhone($field, $value, $params)
     {
-        // Add your own phone validation logic here
-        return true;
+        $pattern = '/^[0-9]{10}$/';
+
+        if (!empty($params) && isset($params[0])) {
+            $pattern = $params[0];
+        }
+
+        return preg_match($pattern, $value) === 1;
     }
 }
